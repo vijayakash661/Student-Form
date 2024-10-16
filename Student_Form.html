@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Form</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <style>
+
+        body{
+            font-size: 18px;
+            background-image: url(https://i.ibb.co/BVD4cN1/11.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            font-family: "Poppins", sans-serif;
+            font-weight: 600;
+            font-style: normal;
+        }
+        #box1 {
+            background-color: rgba(255, 255, 255, 0.858);
+            padding:30px;
+            width: 450px;
+            border-radius: 40px 40px;
+            margin-top: 30px;
+            
+        }
+        #box1 table td{
+            padding-top:20px;
+            padding-left: 50px;
+        }
+  
+        #box2 table{
+            background-color: rgba(24, 103, 164, 0.759);
+            color: white;
+            border-radius: 20px 20px;
+            padding: 8px;   
+        }
+       table,tr,td,th{ 
+            padding-right:38px;
+           
+        }
+        #addrow td,th{
+          padding-left:40px;
+         
+          
+        }
+        input,select{
+            height:25px;
+            font-size:15px;
+            border: 0px;
+            outline: none;
+            background-color:rgba(128, 128, 128, 0.212);
+            font-family: "Poppins", sans-serif;
+            font-weight: 600;
+            font-style: normal;
+        }
+        select,option:hover{
+            background-color: rgba(227, 246, 246, 0.756);
+        }
+        select{
+            height:30px;
+            width: 188px;
+        }
+      #box1 button{
+        width: 200px;
+        height: 40px;
+        font-size:20px;
+        background-color: rgb(24, 103, 164);
+        color: aliceblue;
+        border-radius: 40px;
+        border: transparent;
+      }
+      #box1 button:hover{
+        background-color: white;
+        color: rgb(24, 103, 164);
+        border: rgb(24, 103, 164) solid 2px;
+        transition: 0.4s;
+      }
+      #box2 button{
+        width: 100px;
+        height: 40px;
+        background-color: red;
+        color: white;
+        font-size:20px;
+      }
+      #box2 button:hover{
+        background-color: white;
+        color: rgb(255, 14, 14);
+        border: rgb(255, 30, 30) solid 2px;
+        transition: 0.4s;
+      }
+      #box1 h1{
+        color: rgb(24, 103, 164);
+        padding: 0;
+        margin: 0;
+      }
+      
+    </style>
+
+</head>
+<body>
+    <center>
+        
+    <div id="box1">
+        <h1>STUDENT FORM</h1>
+        <table>
+            <tbody>
+            <tr>
+                <td>Name</td><td><input id="namein"></td>
+            </tr>
+            <tr>
+                <td>Age</td><td><input id="agein"></td>
+            </tr>
+            <tr>
+                <td>Gender</td><td>
+                                    <select id="genderin">
+                                        <option>Male</option>
+                                        <option>Female</option>
+                                    </select>
+                                </td>
+            </tr>
+            <tr>
+                <td>Course</td><td>
+                                    <select id="coursein">
+                                        <option>Java Script</option>
+                                        <option>Python</option>
+                                        <option>C++</option>
+                                        <option>Java</option>
+                                        <option>PHP</option>
+                                    </select>
+                                </td>
+            </tr>
+            <tr>
+                <td>E-Mail</td><td><input type="email" id="emailin"></td>
+            </tr>
+            
+        </tbody>
+           
+        </table>
+        <br>
+        <button onclick="save()">Save</button>
+    </div>
+    <br>
+    <div id="box2">
+        <table>
+            <tbody id="addrow">
+               <tr>
+                <th>NAME</th> <th>AGE</th> <th>COURSE</th> <th>GENDER</th> <th>EMAIL</th> <th>ACTION</th>
+              </tr>
+            </tbody>
+        </table>
+    </div>
+</center>
+</body>
+</html>
+
+<script>
+    var name11=document.getElementById("namein")
+    var age11=document.getElementById("agein")
+    var gender11=document.getElementById("genderin")
+    var course11=document.getElementById("coursein")
+    var email11=document.getElementById("emailin")
+
+    function save(){
+
+        var tr=document.createElement("tr")
+        var tdname=document.createElement("td")
+        var tdage=document.createElement("td")
+        var tdcourse=document.createElement("td")
+        var tdgender=document.createElement("td")
+        var tdemail=document.createElement("td")
+        var tdbutton=document.createElement("button")
+
+        tdname.textContent=name11.value
+        tdage.textContent=age11.value
+        tdcourse.textContent=course11.value
+        tdgender.textContent=gender11.value
+        tdemail.textContent=email11.value
+        tdbutton.setAttribute('onclick','del(event)')
+        tdbutton.style.marginLeft="40px"
+        tdbutton.style.borderRadius="30px"
+        tdbutton.textContent="Delete"
+
+        addrow.append(tr)
+        tr.append(tdname)
+        tr.append(tdage)
+        tr.append(tdcourse)
+        tr.append(tdgender)
+        tr.append(tdemail)
+        tr.append(tdbutton)
+
+
+     
+    }
+
+    function del(event){
+        event.target.parentElement.remove()
+    }
+</script>
